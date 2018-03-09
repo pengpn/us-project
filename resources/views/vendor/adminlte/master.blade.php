@@ -14,8 +14,11 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
+    <!-- toastr -->
+    <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
     <!-- Css自定义 -->
     <link rel="stylesheet" href="{{ asset('css/admin-custom.css') }}">
+
 
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
@@ -42,11 +45,18 @@
 </head>
 <body class="hold-transition @yield('body_class')">
 
-@yield('body')
-
+<!-- jQuery -->
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
+<!-- Bootstrap -->
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+@yield('body')
+
+<!-- toastr -->
+<script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+<!-- 插件参数设置 -->
+<script src="{{ asset('js/plugins-setting.js') }}"></script>
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
