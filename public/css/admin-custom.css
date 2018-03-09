@@ -1,0 +1,17 @@
+/**
+ * 后台公共样式
+ * 一般用于新增或重写原有样式
+ * @author pnpeng
+ * @date 2018-03-08
+ */
+
+.navbar-nav>.user-menu{
+    margin-right: 10px;
+    margin-top: 15px;
+    color: #fff;
+}
+.navbar-nav>.user-menu .user-image{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
