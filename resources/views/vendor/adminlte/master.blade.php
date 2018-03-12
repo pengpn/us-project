@@ -14,24 +14,21 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{ asset('plugins/select2/select2.min.css') }}">
+    <!-- datepicker -->
+    <link rel="stylesheet" href="{{ asset('plugins/datepicker/css/bootstrap-datepicker3.min.css') }}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('plugins/iCheck/minimal/blue.css') }}">
+    <!-- NProgress -->
+    <link rel="stylesheet" href="{{ asset('plugins/nprogress/nprogress.css') }}">
     <!-- toastr -->
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
     <!-- Css自定义 -->
     <link rel="stylesheet" href="{{ asset('css/admin-custom.css') }}">
 
-
-    @if(config('adminlte.plugins.select2'))
-        <!-- Select2 -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
-    @endif
-
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('vendor/adminlte/dist/css/AdminLTE.min.css') }}">
-
-    @if(config('adminlte.plugins.datatables'))
-        <!-- DataTables -->
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
-    @endif
 
     @yield('adminlte_css')
 
@@ -41,37 +38,38 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    {{--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">--}}
 </head>
 <body class="hold-transition @yield('body_class')">
 
 <!-- jQuery -->
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 
 @yield('body')
 
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
+<!-- iCheck -->
+<script src="{{ asset('plugins/iCheck/icheck.js') }}"></script>
+<!-- jquery pjax -->
+<script src="{{ asset('plugins/pjax/jquery.pjax.js') }}"></script>
+<!-- NProgress -->
+<script src="{{ asset('plugins/nprogress/nprogress.js') }}"></script>
 <!-- toastr -->
 <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
+<!-- jsvalidation -->
+<script src="{{ asset('vendor/jsvalidation/js/jsvalidation.js')}}"></script>
+<!-- datepicker -->
+<script src="{{ asset('plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('plugins/datepicker/locales/bootstrap-datepicker.zh-CN.min.js') }}"></script>
 <!-- 插件参数设置 -->
 <script src="{{ asset('js/plugins-setting.js') }}"></script>
-
-@if(config('adminlte.plugins.select2'))
-    <!-- Select2 -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-@endif
-
-@if(config('adminlte.plugins.datatables'))
-    <!-- DataTables -->
-    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-@endif
-
-@if(config('adminlte.plugins.chartjs'))
-    <!-- ChartJS -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
-@endif
+<!-- Pjax全局处理 -->
+<script src="{{ asset('js/pjax-custom.js') }}"></script>
+<!-- JS路由生成（Laravel风格） -->
+@routes
 
 @yield('adminlte_js')
 

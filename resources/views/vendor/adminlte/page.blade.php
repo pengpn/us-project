@@ -108,15 +108,15 @@
         @endif
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" id="pjax-container">
             @if(config('adminlte.layout') == 'top-nav')
             <div class="container">
             @endif
 
             <!-- Content Header (Page header) -->
-            <section class="content-header">
-                @yield('content_header')
-            </section>
+            {{--<section class="content-header">--}}
+                {{--@yield('content_header')--}}
+            {{--</section>--}}
 
             <!-- Main content -->
             <section class="content">

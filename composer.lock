@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "e4247997acb8dfa429ccab6337403363",
+    "content-hash": "6b7b2efcc71b9ee12c1507aa72b1cd7d",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -1715,6 +1715,80 @@
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
+            "name": "proengsoft/laravel-jsvalidation",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/proengsoft/laravel-jsvalidation.git",
+                "reference": "735299cc6ce814da4de0044a5479d8aa0685f088"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/proengsoft/laravel-jsvalidation/735299cc6ce814da4de0044a5479d8aa0685f088.zip",
+                "reference": "735299cc6ce814da4de0044a5479d8aa0685f088",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.4.*|5.5.*|5.6.*",
+                "illuminate/contracts": "5.4.*|5.5.*|5.6.*",
+                "illuminate/http": "5.4.*|5.5.*|5.6.*",
+                "illuminate/support": "5.4.*|5.5.*|5.6.*",
+                "illuminate/translation": "5.4.*|5.5.*|5.6.*",
+                "illuminate/validation": "5.4.*|5.5.*|5.6.*",
+                "illuminate/view": "5.4.*|5.5.*|5.6.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.3",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Proengsoft\\JsValidation\\JsValidationServiceProvider"
+                    ],
+                    "aliases": {
+                        "JsValidator": "Proengsoft\\JsValidation\\Facades\\JsValidatorFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Proengsoft\\JsValidation\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Albert Moreno",
+                    "email": "albert@memorylimit.net",
+                    "homepage": "https://github.com/torrentalle"
+                },
+                {
+                    "name": "Anton Komarev",
+                    "email": "a.komarev@cybercog.su",
+                    "homepage": "http://ell.folio.su/"
+                }
+            ],
+            "description": "Validate forms transparently with Javascript reusing your Laravel Validation Rules, Messages, and FormRequest",
+            "homepage": "https://github.com/proengsoft/laravel-jsvalidation",
+            "keywords": [
+                "form",
+                "javascript",
+                "jquery",
+                "laravel",
+                "proengsoft",
+                "validation",
+                "validator"
+            ],
+            "time": "2018-02-26T21:06:15+00:00"
+        },
+        {
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -3192,6 +3266,57 @@
                 "dump"
             ],
             "time": "2018-02-26T15:55:47+00:00"
+        },
+        {
+            "name": "tightenco/ziggy",
+            "version": "v0.6.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tightenco/ziggy.git",
+                "reference": "cb7a08c8ef5492711ddbff4003d1e53a9fb3431f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/tightenco/ziggy/cb7a08c8ef5492711ddbff4003d1e53a9fb3431f.zip",
+                "reference": "cb7a08c8ef5492711ddbff4003d1e53a9fb3431f",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^5.4.29"
+            },
+            "require-dev": {
+                "mikey179/vfsstream": "^1.6",
+                "orchestra/testbench": "~3.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Tightenco\\Ziggy\\ZiggyServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tightenco\\Ziggy\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Stauffer",
+                    "email": "matt@tighten.co"
+                },
+                {
+                    "name": "Daniel Coulbourne",
+                    "email": "daniel@tighten.co"
+                }
+            ],
+            "description": "Generates a Blade directive exporting all of your named Laravel routes. Also provides a nice route() helper function in JavaScript.",
+            "time": "2018-02-17T05:58:12+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",

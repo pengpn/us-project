@@ -40,6 +40,19 @@ class Permission extends Model
         return $tree;
     }
 
+    public static function generatePermissionTree(array $nodes)
+    {
+        $tree = [];
+        foreach ($nodes as $node) {
+            if (isset($nodes[$node['parent_id']])) {
+                $nodes[$node['parent_id']]['children'][] = &$nodes[$node['id']];
+            } else {
+                $tree[] = &$nodes[$node['id']];
+            }
+        }
+        return $tree;
+    }
+
     /**
      * 获取左侧菜单栏的属性
      * @param $level

@@ -4,6 +4,14 @@
  * @date 2018-03-09
  */
 
+// ajax
+$.ajaxSetup({
+    type: 'GET',   // 请求类型
+    aysnc: true,   // 是否异步加载
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    },
+});
 // toastr
 toastr.options = {
     closeButton: true,  // 是否显示关闭按钮
@@ -12,3 +20,10 @@ toastr.options = {
     timeOut: 4000,      // 自动关闭超时时间
     positionClass: 'toast-top-right'  // 显示位置
 };
+
+// select2
+const select2_settings = {
+    tags: true,                 // 标记已选择项
+    minimumResultsForSearch: 5   // 出现搜索栏的最小个数
+};
+

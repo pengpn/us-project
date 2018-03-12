@@ -17,4 +17,9 @@ Route::post('logout', 'LoginController@logout');
 Route::group(['middleware' => ['auth.admin:admin']], function(){
     //后台主面板
     Route::get('/','DashboardController@index');
+
+    Route::group(['namespace' => 'User'], function (){
+       //权限管理
+        Route::resource('permission','PermissionController');
+    });
 });
