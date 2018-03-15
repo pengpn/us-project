@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BaseController;
 use App\Models\Admin\User\Permission;
 
 
+
 class PermissionController extends BaseController
 {
     public function __construct()
@@ -37,18 +38,18 @@ class PermissionController extends BaseController
     public function store()
     {
         Permission::create(request()->all());
-        return redirect()->back();
+        return redirect()->back()->with(['message' => '插入成功']);
     }
 
     public function update($id)
     {
-        Permission::find($id)->fill(request()->all())->save();
-        return redirect()->back();
+        Permission::find($id)->update(request()->all());
+        return redirect()->back()->with(['message' => '更新成功']);
     }
 
     public function destroy($id)
     {
         Permission::destroy($id);
-        return redirect()->back();
+        return redirect()->back()->with(['message' => '删除成功']);
     }
 }

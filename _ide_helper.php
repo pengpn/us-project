@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.8 on 2018-03-07 17:38:32.
+ * Generated for Laravel 5.6.8 on 2018-03-13 09:45:04.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -9710,6 +9710,26 @@ namespace Illuminate\Support\Facades {
         {
             return \Illuminate\Routing\Router::macroCall($method, $parameters);
         }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function blacklist($group = null)
+        {
+            return \Illuminate\Routing\Router::blacklist($group);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function whitelist($group = null)
+        {
+            return \Illuminate\Routing\Router::whitelist($group);
+        }
          
     }
 
@@ -13278,6 +13298,56 @@ namespace Maatwebsite\Excel\Facades {
  
 }
 
+namespace Proengsoft\JsValidation\Facades { 
+
+    class JsValidatorFacade {
+        
+        /**
+         * Creates JsValidator instance based on rules and message arrays.
+         *
+         * @param array $rules
+         * @param array $messages
+         * @param array $customAttributes
+         * @param null|string $selector
+         * @return \Proengsoft\JsValidation\JavascriptValidator 
+         * @static 
+         */ 
+        public static function make($rules, $messages = array(), $customAttributes = array(), $selector = null)
+        {
+            return \Proengsoft\JsValidation\JsValidatorFactory::make($rules, $messages, $customAttributes, $selector);
+        }
+        
+        /**
+         * Creates JsValidator instance based on FormRequest.
+         *
+         * @param $formRequest
+         * @param null $selector
+         * @return \Proengsoft\JsValidation\JavascriptValidator 
+         * @throws FormRequestArgumentException
+         * @static 
+         */ 
+        public static function formRequest($formRequest, $selector = null)
+        {
+            return \Proengsoft\JsValidation\JsValidatorFactory::formRequest($formRequest, $selector);
+        }
+        
+        /**
+         * Creates JsValidator instance based on Validator.
+         *
+         * @param \Illuminate\Validation\Validator $validator
+         * @param string|null $selector
+         * @return \Proengsoft\JsValidation\JavascriptValidator 
+         * @static 
+         */ 
+        public static function validator($validator, $selector = null)
+        {
+            return \Proengsoft\JsValidation\JsValidatorFactory::validator($validator, $selector);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -15453,6 +15523,8 @@ namespace  {
     class Image extends \Intervention\Image\Facades\Image {}
 
     class Excel extends \Maatwebsite\Excel\Facades\Excel {}
+
+    class JsValidator extends \Proengsoft\JsValidation\Facades\JsValidatorFacade {}
  
 }
 

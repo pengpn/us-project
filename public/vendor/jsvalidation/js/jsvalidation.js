@@ -261,11 +261,11 @@ $.extend( $.validator, {
 				this.hideThese( this.errorsFor( element ) );
 			}
 		},
-		/*onfocusout: function( element ) {
+		onfocusout: function( element ) {
 			if ( !this.checkable( element ) && ( element.name in this.submitted || !this.optional( element ) ) ) {
 				this.element( element );
 			}
-		},*/
+		},
 		onkeyup: function( element, event ) {
 			// Avoid revalidate the field when pressing one of the following keys
 			// Shift       => 16
@@ -285,16 +285,12 @@ $.extend( $.validator, {
 				16, 17, 18, 20, 35, 36, 37,
 				38, 39, 40, 45, 144, 225
 			];
+
 			if ( event.which === 9 && this.elementValue( element ) === "" || $.inArray( event.keyCode, excludedKeys ) !== -1 ) {
 				return;
 			} else if ( element.name in this.submitted || element === this.lastElement ) {
-				this.element(element);
+				this.element( element );
 			}
-		},
-		onchange: function(element){
-            if ( !this.checkable( element ) && ( element.name in this.submitted || !this.optional( element ) ) ) {
-                this.element( element );
-            }
 		},
 		onclick: function( element ) {
 			// click on selects, radiobuttons and checkboxes
@@ -386,7 +382,7 @@ $.extend( $.validator, {
 			}
 
 			$( this.currentForm )
-				.on( "focusin.validate keyup.validate change.validate",
+				.on( "focusin.validate focusout.validate keyup.validate",
 					":text, [type='password'], [type='file'], select, textarea, [type='number'], [type='search'], " +
 					"[type='tel'], [type='url'], [type='email'], [type='datetime'], [type='date'], [type='month'], " +
 					"[type='week'], [type='time'], [type='datetime-local'], [type='range'], [type='color'], " +
@@ -416,29 +412,13 @@ $.extend( $.validator, {
 			return this.valid();
 		},
 
-		/*checkForm: function() {
+		checkForm: function() {
 			this.prepareForm();
 			for ( var i = 0, elements = ( this.currentElements = this.elements() ); elements[ i ]; i++ ) {
 				this.check( elements[ i ] );
 			}
 			return this.valid();
-		},*/
-		// 解决插件不支持name数组方式的验证
-        checkForm: function() {
-            this.prepareForm();
-            for (let i = 0, elements = (this.currentElements = this.elements()); elements[i]; i++) {
-            	const $element_array = $(this.currentForm ).find("[name='" + elements[i].name + "']").not(this.settings.ignore);
-				if($element_array.length > 1){
-					const self = this;
-                    $element_array.each(function(){
-                        self.check($(this));
-					});
-				}else{
-                    this.check(elements[i]);
-				}
-            }
-            return this.valid();
-        },
+		},
 
 		// http://jqueryvalidation.org/Validator.element/
 		element: function( element ) {
@@ -690,9 +670,8 @@ $.extend( $.validator, {
 				return;
 			}
 			if ( this.objectLength( rules ) ) {
-				//this.successList.push( element );
-                this.settings.unhighlight.call( this, element, this.settings.errorClass, this.settings.validClass );
-            }
+				this.successList.push( element );
+			}
 			return true;
 		},
 
