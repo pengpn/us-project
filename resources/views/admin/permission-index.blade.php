@@ -130,7 +130,7 @@
 
             // 权限树 - 删除
             $('.treeview-delete').click(function(){
-                // deleteHandler(route('permission.destroy', $(this).data('id')));
+                deleteHandler(route('permission.destroy', $(this).data('id')));
             });
 
         });

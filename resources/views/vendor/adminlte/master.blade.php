@@ -52,6 +52,8 @@
 
 @yield('body')
 
+<!-- 后台公用 -->
+<script src="{{ asset('js/admin-custom.js') }}"></script>
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
 <!-- iCheck -->
@@ -60,6 +62,8 @@
 <script src="{{ asset('plugins/pjax/jquery.pjax.js') }}"></script>
 <!-- NProgress -->
 <script src="{{ asset('plugins/nprogress/nprogress.js') }}"></script>
+<!-- SweetAlert -->
+<script src="{{ asset('plugins/sweetalert/sweetalert.min.js') }}"></script>
 <!-- toastr -->
 <script src="{{ asset('plugins/toastr/toastr.min.js') }}"></script>
 <!-- jsvalidation -->
