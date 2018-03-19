@@ -94,19 +94,19 @@ function initPlugins()
 //     });
 }
 
-//
-// $(function(){
-//     // 点击左侧菜单栏触发高亮效果（使用Pjax后需要处理）
-//     $('.sidebar-menu li:not(.treeview) > a').on('click', function(){
-//         const $li = $(this).parent();
-//         $li.addClass('active');
-//         // 自动收缩兄弟元素
-//         $li.siblings('.treeview.menu-open').find('> a').trigger('click');
-//         // 去掉兄弟元素的高亮效果
-//         $li.siblings().removeClass('active').find('li').removeClass('active');
-//         // 添加父级元素的高亮效果
-//         $li.closest('li.treeview').addClass('active');
-//         // 去掉父级的兄弟元素的高亮效果
-//         $li.closest('li.treeview').siblings().removeClass('active');
-//     });
-// });
+
+$(function(){
+    // 点击左侧菜单栏触发高亮效果（使用Pjax后需要处理）
+    $('.sidebar-menu li:not(.treeview) > a').on('click', function(){
+        const $li = $(this).parent();
+        $li.addClass('active');
+        // 自动收缩兄弟元素
+        $li.siblings('.treeview.menu-open').find('> a').trigger('click');
+        // 去掉兄弟元素的高亮效果
+        $li.siblings().removeClass('active').find('li').removeClass('active');
+        // 添加父级元素的高亮效果
+        $li.closest('li.treeview').addClass('active');
+        // 去掉父级的兄弟元素的高亮效果
+        $li.closest('li.treeview').siblings().removeClass('active');
+    });
+});
