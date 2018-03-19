@@ -30,6 +30,13 @@ $(document).on('pjax:send', function(xhr){
         if($submit_btn){
             $submit_btn.button('loading');
         }
+
+        //点击modal弹框中的提交按钮时,使得该弹框的灰色遮罩消失，防止与Pjax样式冲突
+        if ($('.modal').hasClass('in')) {
+            $('.modal').modal('toggle');
+            $('.modal-backdrop').remove();
+            $('body').removeClass('modal-open');
+        }
     }
     NProgress.start();
 });
