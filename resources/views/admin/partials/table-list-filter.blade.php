@@ -14,7 +14,7 @@
                 {{ $modal_body }}
             </div>
             <div class="modal-footer">
-                {!! Former::primary_button('提交')->type('submit')->data_dismiss('modal') !!}
+                {!! Former::primary_button('提交')->type('submit') !!}
                 {!! Former::default_button('关闭')->data_dismiss('modal') !!}
             </div>
             {!! Former::close() !!}
