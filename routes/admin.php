@@ -19,7 +19,9 @@ Route::group(['middleware' => ['auth.admin:admin']], function(){
     Route::get('/','DashboardController@index');
 
     Route::group(['namespace' => 'User'], function (){
-       //权限管理
+        //权限管理
         Route::resource('permission','PermissionController');
+        //角色管理
+        Route::resource('role','RoleController');
     });
 });

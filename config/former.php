@@ -32,6 +32,12 @@
 	// The value a checkbox will have in the POST array if unchecked
 	'unchecked_value'         => 0,
 
+	//Group
+    ////////////////////////////////////////////////////////////////////
+
+    //表单项自动外包form-group(当没有Former::open的情况)
+    'auto_wrap_form_group'    => false,
+
 	// Required fields
 	////////////////////////////////////////////////////////////////////
 

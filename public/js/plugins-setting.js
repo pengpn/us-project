@@ -21,6 +21,13 @@ toastr.options = {
     positionClass: 'toast-top-right'  // 显示位置
 };
 
+// icheck
+const icheck_settings = {
+    checkboxClass: 'icheckbox_minimal-blue',   // checkbox样式
+    radioClass : 'iradio_minimal-blue',   // radio样式
+    increaseArea: '20%'                 // 触控范围增大百分比
+};
+
 // select2
 const select2_settings = {
     tags: true,                 // 标记已选择项

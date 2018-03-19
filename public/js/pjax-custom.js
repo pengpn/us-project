@@ -64,11 +64,11 @@ function initPlugins()
          $('.modal select').css('width', '100%');  // 修复模态框下的select2插件宽度变窄问题
          $select_obj.select2(select2_settings);
      }
-//     // icheck
-//     const $input_obj = $('input:checkbox.minimal, input:radio.minimal');
-//     if($input_obj.length > 0){
-//         $input_obj.iCheck(icheck_settings);
-//     }
+    // icheck
+    const $input_obj = $('input:checkbox.minimal, input:radio.minimal');
+    if($input_obj.length > 0){
+        $input_obj.iCheck(icheck_settings);
+    }
 //     // datepicker
 //     if($('.datepicker').length > 0){
 //         $('.datepicker').datepicker(datepicker_settings);
