@@ -48,6 +48,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if($request->pjax()){
+            $request->headers->set('Accept', 'application/json');
+        }
         return parent::render($request, $exception);
     }
 }
