@@ -11,7 +11,7 @@
                 @foreach([10,20,30,50,100] as $value)
                     <option {{ $value == request('per_page') ? 'selected' : '' }} value="{{ $value }}">{{ $value }}</option>
                 @endforeach
-            </select>
+            </select> 项结果
         </label>
     </div>
 @endif

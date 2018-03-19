@@ -52,7 +52,6 @@
             @include('admin.partials.table-list-footer', ['list' => $role ?? []])
         </div>
     </div>
-
 @stop
 
 @section('js')

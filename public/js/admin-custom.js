@@ -6,26 +6,26 @@
  */
 
 //改变每页显示数量
-function perPageChange(obj) {
+function perPageChange(obj)
+{
     const per_page = $(obj).val();
     const current_url = window.location.href;
     let redirect_url = null;
-    if (current_url.indexOf('per_page') !== -1) {
+    if(current_url.indexOf('per_page') !== -1){
         redirect_url = replaceUrlParamVal('per_page', per_page);
-    } else {
+    }else{
         redirect_url = current_url.split('?')[0] + '?per_page=' + per_page +
             (window.location.search ? '&' + window.location.search.replace('?', '') : '');
     }
-
-    $.pjax({ url: redirect_url, container: '#pjax-container'});
+    $.pjax({ url: redirect_url, container: '#pjax-container' });
 }
 
 // 替换URL中参数值
 function replaceUrlParamVal(param_name ,replace_with)
 {
     const s_url = window.location.href.toString();
-    const pattern = eval('/(' + param_name + '=)(^&*)/gi');
-    return s_url.replace(pattern, param_name+'='+replace_with)
+    const pattern = eval('/('+ param_name +'=)([^&]*)/gi');
+    return s_url.replace(pattern, param_name +'='+ replace_with);
 }
 
 
