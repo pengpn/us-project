@@ -20,7 +20,6 @@ $(document).on('pjax:timeout', function(event){
 
 // 表单提交Pjax
 $(document).on('submit', 'form:not([no-pjax])', function(event){
-    console.log(11111);
     $.pjax.submit(event, '#pjax-container');
 });
 
@@ -43,7 +42,7 @@ $(document).on('pjax:complete', function(xhr){
             $submit_btn.button('reset');
         }
     }
-    // initPlugins();
+    initPlugins();
     NProgress.done();
 });
 
@@ -56,15 +55,15 @@ $(document).on('pjax:error', function(event, XMLHttpRequest, textStatus, errorMs
 });
 
 // 初始化插件（Pjax加载后立即触发，使得JS插件初始化的动画效果更流畅）
-// initPlugins();
-// function initPlugins()
-// {
-//     // select2
-//     const $select_obj = $('select:not([no-select2])');
-//     if($select_obj.length > 0){
-//         $('.modal select').css('width', '100%');  // 修复模态框下的select2插件宽度变窄问题
-//         $select_obj.select2(select2_settings);
-//     }
+initPlugins();
+function initPlugins()
+{
+     // select2
+     const $select_obj = $('select:not([no-select2])');
+     if($select_obj.length > 0){
+         $('.modal select').css('width', '100%');  // 修复模态框下的select2插件宽度变窄问题
+         $select_obj.select2(select2_settings);
+     }
 //     // icheck
 //     const $input_obj = $('input:checkbox.minimal, input:radio.minimal');
 //     if($input_obj.length > 0){
@@ -86,7 +85,7 @@ $(document).on('pjax:error', function(event, XMLHttpRequest, textStatus, errorMs
 //     $('input').mouseover(function(){
 //         $(this).attr('title', $(this).val());
 //     });
-// }
+}
 
 //
 // $(function(){
