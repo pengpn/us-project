@@ -7,7 +7,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\User\Permission;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
+use LogicException;
 
 class BaseController extends Controller
 {
@@ -17,6 +20,8 @@ class BaseController extends Controller
     {
         if (request()->server('SCRIPT_NAME') == 'artisan') return false;
         $this->initRouteEntity();
+        $this->loadPageTitle();
+        $this->formValidator();
         $this->setViewShare();
     }
 
@@ -27,6 +32,31 @@ class BaseController extends Controller
         $route_entity = str_replace('-','_', $this->entity);
         if (request()->route($route_entity)) {
             request()->merge(['id' => request()->route($route_entity)]);
+        }
+    }
+
+    private function loadPageTitle()
+    {
+        if(request()->method() != 'GET' || (request()->ajax() && !request()->pjax())) return;
+        $route_name = request()->route()->getName();
+        if(array_last(explode('.', $route_name)) == 'index'){
+            $route_name = str_replace('.index', '', $route_name);
+        }
+        $permission = Permission::where('name', $route_name)->first();
+        if(!$permission){
+            throw new LogicException('需要添加路由别名【'.$route_name.'】');
+        }
+        View::share('page_title', $permission->display_name);
+    }
+
+    private function formValidator()
+    {
+        if (in_array(request()->method(),['POST','PUT'])) {
+            //表单验证
+            $validation = Validator::make(request()->all(), rules());
+            if ($validation->fails()) {
+                throw new LogicException('后端表单验证不通过');
+            }
         }
     }
 

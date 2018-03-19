@@ -31,7 +31,7 @@ class PermissionController extends BaseController
             $permission = Permission::where('id', $id)->first();
             return response()->json($permission);
         }
-        return view('admin.permission-index');
+        return view('admin.user.permission-index');
 
     }
 
