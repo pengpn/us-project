@@ -22,7 +22,7 @@ class PermissionController extends BaseController
     {
         $permissions = Permission::orderBy('order_num')->get()->keyBy('id');
         $permission_tree = Permission::generatePermissionTree($permissions->toArray());
-        return view('admin.permission-index', compact('permission_tree'));
+        return view('admin.user.permission-index', compact('permission_tree'));
     }
 
     public function edit($id)
