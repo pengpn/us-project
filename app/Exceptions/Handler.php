@@ -48,6 +48,7 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //当是pjax请求的时候,渲染返回reponse的接受为json
         if($request->pjax()){
             $request->headers->set('Accept', 'application/json');
         }

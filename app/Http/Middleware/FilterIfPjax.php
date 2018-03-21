@@ -29,14 +29,12 @@ class FilterIfPjax
         $response = $next($request);
 
 //        // 如果response中含有错误提示信息，则直接返回，避免后续二次错误污染
-//        if($request->pjax()){
-//            $json_data = json_decode($response->content(), true);
-//            if(isset($json_data['message'])){
-//                return $response;
-//            }else if($response->getStatusCode() >= 400){
-//                abort($response->getStatusCode());
-//            }
-//        }
+        if($request->pjax()){
+            $json_data = json_decode($response->content(), true);
+            if(isset($json_data['message'])){
+                return $response;
+            }
+        }
 
         if (!$request->pjax() || $response->isRedirection()) {
             return $response;
