@@ -33,6 +33,8 @@ class FilterIfPjax
             $json_data = json_decode($response->content(), true);
             if(isset($json_data['message'])){
                 return $response;
+            }else if($response->getStatusCode() >= 400){
+                abort($response->getStatusCode());
             }
         }
 

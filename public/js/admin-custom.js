@@ -5,6 +5,20 @@
  * @namespace window.exrate_converter 汇率数据容器
  */
 
+//抛出错误提示
+function throwErrorMessage(XMLHttpRequest)
+{
+    let message = null;
+    if (JSON.parse(XMLHttpRequest.responseText).message) {
+        message = JSON.parse(XMLHttpRequest.responseText).message;
+    } else if(XMLHttpRequest.status === 401) {
+        window.location.href = '/admin/login';
+    } else {
+        message = XMLHttpRequest.statusText;
+    }
+    toastr.error('错误码：' + XMLHttpRequest.status + '<br />' + '错误信息：' + message);
+}
+
 //改变每页显示数量
 function perPageChange(obj)
 {

@@ -56,7 +56,7 @@ $(document).on('pjax:complete', function(xhr){
 
 // Pjax加载错误后的处理
 $(document).on('pjax:error', function(event, XMLHttpRequest, textStatus, errorMsg) {
-    // throwErrorMessage(XMLHttpRequest);
+    throwErrorMessage(XMLHttpRequest);
     // history.back();
     return false;
 });
