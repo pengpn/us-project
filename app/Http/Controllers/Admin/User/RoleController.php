@@ -7,6 +7,7 @@
 namespace App\Http\Controllers\Admin\User;
 
 use App\Http\Controllers\Admin\BaseController;
+use App\Models\Admin\User\Permission;
 use App\Models\Admin\User\Role;
 use Illuminate\Http\Request;
 
@@ -54,6 +55,21 @@ class RoleController extends BaseController
     {
         Role::destroy($id);
         return redirect()->back()->with(['message' => '删除成功']);
+    }
+
+    public function getAcl($id)
+    {
+        $permissions = Permission::orderBy('order_num')->get()->keyBy('id');
+        $permission_tree = Permission::generatePermissionTree($permissions->toArray());
+        $own_permissions = Role::getOwnPermissions($id);
+        return view('admin.user.role-acl', compact('permission_tree','own_permissions'));
+
+    }
+
+    public function setAcl($id)
+    {
+        Role::find($id)->permissions()->sync(request('permission_ids'));
+        return redirect()->route('role.getacl', $id);
     }
 
     

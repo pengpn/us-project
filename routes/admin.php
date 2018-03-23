@@ -22,6 +22,8 @@ Route::group(['middleware' => ['auth.admin:admin']], function(){
         //权限管理
         Route::resource('permission','PermissionController');
         //角色管理
+        Route::get('role/{id}/getacl','RoleController@getAcl')->name('role.getacl');
+        Route::post('role/{id}/setacl','RoleController@setAcl')->name('role.setacl');
         Route::resource('role','RoleController');
     });
 });

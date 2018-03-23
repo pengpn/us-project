@@ -23,10 +23,18 @@ class RoleRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required',
-            'description' => 'required'
-        ];
+        $action_method = request()->route()->getActionMethod();
+        if ($action_method == 'setAcl') {
+            $rules = [
+                'permission_ids' => 'nullable|array',
+            ];
+        } else {
+            $rules = [
+                'name' => 'required',
+                'description' => 'required'
+            ];
+        }
+
         return $rules;
     }
 }

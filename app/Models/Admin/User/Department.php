@@ -8,6 +8,11 @@ namespace App\Models\Admin\User;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Admin\User\Department
+ *
+ * @mixin \Eloquent
+ */
 class Department extends Model
 {
     protected $table = 'departments';

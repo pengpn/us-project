@@ -11,6 +11,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
+/**
+ * App\Models\Admin\User\AdminUser
+ *
+ * @property-read \App\Models\Admin\User\Department $department
+ * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Admin\User\Role[] $roles
+ * @mixin \Eloquent
+ */
 class AdminUser extends Authenticatable
 {
     use Notifiable;

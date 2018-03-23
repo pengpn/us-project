@@ -33,11 +33,11 @@
                         <td>{{ $value->description }}</td>
                         <td>
                             <div class="btn-group">
-                                {{--@if(Gate::allows($entity . '.getacl'))--}}
-                                {{--<a href="{!! route($entity . '.getacl', $value->id); !!}" class="btn bg-purple btn-xs">--}}
-                                {{--<i class="fa fa-tree">设置权限</i>--}}
-                                {{--</a>--}}
-                                {{--@endif--}}
+                                @if(Gate::allows($entity . '.getacl'))
+                                <a href="{!! route($entity . '.getacl', $value->id); !!}" class="btn bg-purple btn-xs">
+                                <i class="fa fa-tree">设置权限</i>
+                                </a>
+                                @endif
                                 @component('admin.partials.table-list-normal-button')
                                     @slot('id'){{ $value->id }}@endslot
                                 @endcomponent

@@ -9,6 +9,12 @@ namespace App\Models\Admin\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Gate;
 
+/**
+ * App\Models\Admin\User\Permission
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Admin\User\Role[] $roles
+ * @mixin \Eloquent
+ */
 class Permission extends Model
 {
     protected $table = 'admin_permissions';
