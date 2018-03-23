@@ -41,6 +41,9 @@
 	// Required fields
 	////////////////////////////////////////////////////////////////////
 
+    // 自动标记必须项（文本后面的*符号）
+    'auto_mark_required'      => false,
+
 	// The class to be added to required fields
 	'required_class'          => 'required',
 
