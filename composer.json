@@ -35,8 +35,12 @@
             "database/factories"
         ],
         "psr-4": {
-            "App\\": "app/"
-        }
+            "App\\": "app/",
+            "Former\\": "app/Overrides/vendor/Former/"
+        },
+        "exclude-from-classmap": [
+            "vendor\\anahkiasen\\former\\src\\Former\\Form\\Form.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
