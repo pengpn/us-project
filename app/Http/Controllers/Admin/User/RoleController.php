@@ -19,13 +19,42 @@ class RoleController extends BaseController
 
     public function index()
     {
-        $role = Role::when(request('id'), function ($query){
+        $role = Role::when(request('id'), function($query){
             $query->where('id', request('id'));
-        })->when(request('name'), function ($query){
-            $query->where('name','like','%'.request('name').'%');
+        })->when(request('name'), function($query){
+            $query->where('name', 'like', '%'.request('name').'%');
         })->latest()->paginate(request('per_page'));
-
         return view('admin.user.role-index', compact('role'));
     }
+
+    public function create()
+    {
+        return view('admin.user.role-edit');
+    }
+
+    public function edit($id)
+    {
+        $role = Role::find($id);
+        return view('admin.user.role-edit', compact('role'));
+    }
+
+    public function store()
+    {
+        Role::create(request()->all());
+        return redirect(request('previous_url'))->with(['message' => '插入成功']);
+    }
+
+    public function update($id)
+    {
+        Role::find($id)->update(request()->all());
+        return redirect(request('previous_url'))->with(['message' => '更新成功']);
+    }
+
+    public function destroy($id)
+    {
+        Role::destroy($id);
+        return redirect()->back()->with(['message' => '删除成功']);
+    }
+
     
 }

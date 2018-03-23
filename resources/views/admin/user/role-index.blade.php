@@ -25,7 +25,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($role ?? [] as $value)
+                @foreach( ($role ?? []) as $value)
                     <tr>
                         <td><input type="checkbox" class="minimal" value="{{ $value->id }}"></td>
                         <td>{{ $value->id }}</td>
