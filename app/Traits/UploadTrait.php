@@ -35,6 +35,9 @@ trait UploadTrait
             $file_name = uniqid() . rand(10000,99999) . '.' . $extension;
             //移动文件
             $file->move($upload_path, $file_name);
+            $file_path[$field] = $upload_path . '/' . $file_name;
+            // 删除原临时文件
+            $this->deleteFile($field);
         }
         //更新文件路径
         $this->updateFilePath($file_path);
