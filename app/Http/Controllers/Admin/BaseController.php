@@ -25,6 +25,9 @@ class BaseController extends Controller
         $this->setViewShare();
     }
 
+    /**
+     * 初始化路由实体信息
+     */
     private function initRouteEntity()
     {
         $this->entity = array_first(explode('.' , request()->route()->getName()));
@@ -35,6 +38,9 @@ class BaseController extends Controller
         }
     }
 
+    /**
+     * 加载页面标题
+     */
     private function loadPageTitle()
     {
         if(request()->method() != 'GET' || (request()->ajax() && !request()->pjax())) return;
@@ -49,6 +55,9 @@ class BaseController extends Controller
         View::share('page_title', $permission->display_name);
     }
 
+    /**
+     * 表单验证处理
+     */
     private function formValidator()
     {
         if (in_array(request()->method(),['POST','PUT'])) {
@@ -60,6 +69,9 @@ class BaseController extends Controller
         }
     }
 
+    /**
+     * 设置模板共享变量
+     */
     private function setViewShare()
     {
         //设置主键ID
