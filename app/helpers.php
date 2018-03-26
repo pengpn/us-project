@@ -17,3 +17,15 @@ if (! function_exists('rules')) {
         return $rules;
     }
 }
+
+if (! function_exists('debugbar')) {
+    /**
+     * Get the Debugbar instance
+     *
+     * @return \Barryvdh\Debugbar\LaravelDebugbar
+     */
+    function debugbar()
+    {
+        return app('debugbar');
+    }
+}
