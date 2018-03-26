@@ -6,7 +6,7 @@
  **/
 namespace App\Models\Admin\User;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Traits\FormTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -21,7 +21,7 @@ use Illuminate\Notifications\Notifiable;
  */
 class AdminUser extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable,FormTrait;
 
     protected $fillable = ['username', 'password', 'name', 'email', 'avatar'];
     protected $hidden = ['password', 'remember_token'];
