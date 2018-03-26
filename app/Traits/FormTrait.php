@@ -1,6 +1,7 @@
 <?php
 /**
  *  表单特性
+ * 使用Trait的原因，而不写在BaseModel下，是因为AdminUser继承其他的类，为避免修改它，决定使用Trait特性，增加类的横向拓展
  * Created by PhpStorm.
  * User: test
  * Date: 2018/3/26
