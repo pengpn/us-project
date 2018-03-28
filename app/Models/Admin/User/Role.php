@@ -6,6 +6,7 @@
  **/
 namespace App\Models\Admin\User;
 
+use App\Traits\FormTrait;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -17,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Role extends Model
 {
+    use FormTrait;
     protected $table = 'admin_roles';
     protected $fillable = ['name', 'description'];
 
@@ -40,5 +42,19 @@ class Role extends Model
         return Role::find($id)->permissions()->get()->map(function ($name){
             return $name->pivot;
         })->pluck('permission_id');
+    }
+
+    /**
+     * 获取角色复选框中已选择的值
+     * @param $id
+     * @return mixed
+     */
+    public static function getRoleSelected($id)
+    {
+        //找出user id = $id的user的角色
+        return Role::whereHas('users', function ($query) use ($id) {
+            $query->where('id',$id);
+        })->get()->pluck('id');
+
     }
 }

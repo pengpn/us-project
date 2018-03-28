@@ -20,5 +20,21 @@
             {!! Former::text('department_address')->label('部门所在地') !!}
             {!! Former::multiselect('department_user_ids')->options($admin_user_options)->label('人员') !!}
         </div>
+        <div class="box-footer">
+            {!! Former::actions(
+                Former::primary_button('保存')->type('submit'),
+                Former::warning_button('重置')->type('reset')
+            ) !!}
+        </div>
+        {!! Former::close() !!}
     </div>
+@stop
+
+@section('js')
+    {!! JsValidator::formRequest('App\Http\Requests\DepartmentRequest', '#form') !!}
+    <script type="text/javascript">
+        $(function(){
+
+        });
+    </script>
 @stop

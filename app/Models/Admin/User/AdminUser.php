@@ -7,6 +7,7 @@
 namespace App\Models\Admin\User;
 
 use App\Traits\FormTrait;
+use App\Traits\UploadTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -21,9 +22,9 @@ use Illuminate\Notifications\Notifiable;
  */
 class AdminUser extends Authenticatable
 {
-    use Notifiable,FormTrait;
+    use Notifiable,FormTrait,UploadTrait;
 
-    protected $fillable = ['username', 'password', 'name', 'email', 'avatar'];
+    protected $fillable = ['username', 'password', 'name', 'email', 'avatar','department_id'];
     protected $hidden = ['password', 'remember_token'];
 
     public function department()
