@@ -27,7 +27,7 @@ class AdminUserController extends BaseController
             $query->where('email','like','%'.request('email').'%');
         })->when(request('name'), function($query){
             $query->where('name','like','%'.request('name').'%');
-        })->with('roles')->latest()->paginate(request('per_page'));
+        })->with('roles','department','superiors')->latest()->paginate(request('per_page'));
         return view('admin.user.user-index',compact('users'));
     }
 
@@ -35,7 +35,8 @@ class AdminUserController extends BaseController
     {
         $role_options = Role::getSelectOptions();
         $department_options = Department::getSelectOptions();
-        return view('admin.user.user-edit',compact('role_options','department_options'));
+        $superior_user_options = AdminUser::getSelectOptions();
+        return view('admin.user.user-edit',compact('role_options','department_options','superior_user_options'));
     }
 
     public function edit($id)
@@ -44,7 +45,9 @@ class AdminUserController extends BaseController
         $role_options = Role::getSelectOptions();
         $role_selected = Role::getRoleSelected($id);
         $department_options = Department::getSelectOptions();
-        return view('admin.user.user-edit', compact('user', 'role_options', 'role_selected', 'department_options'));
+        $superior_user_options = AdminUser::getSelectOptions();
+        $superior_user_selected = AdminUser::getSuperiorSelected($id);
+        return view('admin.user.user-edit', compact('user', 'role_options', 'role_selected', 'department_options','superior_user_selected','superior_user_options'));
 
     }
 
@@ -55,6 +58,7 @@ class AdminUserController extends BaseController
         $request->merge(['password' => $hash_password]);
         $admin_user = AdminUser::create(request()->all());
         $admin_user->roles()->sync(request('role_ids'));
+        $admin_user->superiors()->sync(request('superior_user_ids'));
         $admin_user->uploadFile();
         return redirect(request('previous_url'));
     }
@@ -67,6 +71,7 @@ class AdminUserController extends BaseController
         $request->merge(['password' => $hash_password]);
         $admin_user->update(request()->all());
         $admin_user->roles()->sync(request('role_ids'));
+        $admin_user->superiors()->sync(request('superior_user_ids'));
         $admin_user->uploadFile();
         return redirect(request('previous_url'));
     }

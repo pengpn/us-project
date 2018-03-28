@@ -37,6 +37,11 @@ class AdminUser extends Authenticatable
         return $this->belongsToMany(Role::class,'admin_role_user','user_id','role_id');
     }
 
+    public function superiors()
+    {
+        return $this->belongsToMany(AdminUser::class,'admin_superior_user','user_id','superior_user_id');
+    }
+
     public function hasPermission($permission)
     {
         if (is_string($permission)) {
@@ -52,6 +57,16 @@ class AdminUser extends Authenticatable
             return $this->roles->contains('name', $role);
         }
         // intersect 移除任何指定 数组 或集合内所没有的数值。最终集合保存着原集合的键：
-        return $role->intersect($this->roles)->count();
+        return !!$role->intersect($this->roles)->count();
+    }
+
+    /**
+     * 获取用户上级用户复选框已选择的值
+     * @param $id
+     * @return mixed
+     */
+    public static function getSuperiorSelected($id)
+    {
+        return AdminUser::find($id)->superiors->pluck('id');
     }
 }

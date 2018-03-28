@@ -25,7 +25,8 @@
                     <th>邮箱</th>
                     <th>昵称</th>
                     <th>角色</th>
-                    {{--<th>部门</th>--}}
+                    <th>上级用户</th>
+                    <th>部门</th>
                     {{--<th>职位</th>--}}
                     <th>操作</th>
                 </tr>
@@ -43,6 +44,12 @@
                                     <span class="label label-info">{{ $role->name }}</span>
                                 @endforeach
                             </td>
+                            <td>
+                                @foreach($user->superiors as $superior)
+                                    <span class="label label-info">{{ $superior->name }}</span>
+                                @endforeach
+                            </td>
+                            <td>{{ $user->department->department_name }}</td>
                             <td>
                                 <div class="btn-group">
                                     @component('admin.partials.table-list-normal-button')

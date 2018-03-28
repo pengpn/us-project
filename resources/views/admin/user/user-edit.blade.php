@@ -14,6 +14,7 @@
             {!! Former::open_for_files()->id('form')->method('PUT')->action(route($entity.'.update', $id)) !!}
             {!! Former::populate($user) !!}
             {!! Former::populateField('role_ids', $role_selected) !!}
+            {!! Former::populateField('superior_user_ids', $superior_user_selected) !!}
         @endif
         <div class="box-body">
             {!! Former::text('username')->label('账号') !!}
@@ -25,6 +26,7 @@
                 @slot('file_path'){{ $user->avatar or '' }}@endslot
             @endcomponent
             {!! Former::multiselect('role_ids')->options($role_options)->label('角色') !!}
+            {!! Former::multiselect('superior_user_ids')->options($superior_user_options)->label('上级用户') !!}
             {!! Former::select('department_id')->options($department_options)->label('所属部门') !!}
 
         </div>
