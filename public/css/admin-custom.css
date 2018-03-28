@@ -4,11 +4,27 @@
  * @author pnpeng
  * @date 2018-03-08
  */
-
+.margin-l-3{
+    margin-left: 3px;
+}
+.margin-r-10{
+    margin-right: 10px;
+}
+.margin-t-15{
+    margin-top: 15px;
+}
+.margin-b-8{
+    margin-bottom: 8px;
+}
 .display-none{
     display: none;
 }
-
+.sidebar-menu>li>a{
+    padding: 13px 8px 13px 15px !important;
+}
+.treeview-menu>li{
+    padding: 2px !important;
+}
 .navbar-nav>.user-menu{
     margin-right: 10px;
     margin-top: 15px;
@@ -62,3 +78,240 @@
 .table-list .form-group{
     margin: -3px 0 0 0 !important;
 }
+.table-list .select2-container--default .select2-selection--single{
+    height: 28px !important;
+}
+.table-list .select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 23px !important;
+}
+.table-list .select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 1px !important;
+}
+input[type=file]{
+    width: 100%;
+    border: 1px solid #d2d6de;
+    display: inline-block !important;
+    padding: 4px 0 5px 5px;
+}
+.label-info, .label-success, .label-warning, .label-danger{
+    padding-top: 4px !important;
+}
+.form-control{
+    border-radius: 4px !important;
+}
+.form-group.has-success label, .form-group.has-error label{
+    color: #333 !important;
+}
+.form-group.has-success .select2-selection{
+    border-color: #00a65a !important;
+}
+.form-group.has-error .select2-selection{
+    border-color: #dd4b39 !important;
+}
+.select2-container--default .select2-selection--single{
+    height: 34px !important;
+    border: 1px solid #ccc !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 30px !important;
+    padding-left: 0 !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    top: 4px !important;
+}
+.select2-container--default .select2-selection--multiple{
+    height: 37px;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__rendered{
+    height: 37px;
+    padding: 3px 5px 0 5px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    color: #555;
+    height: 25px;
+    margin-top: 2px !important;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    margin-top: 2px;
+}
+.select2-container--default .select2-results>.select2-results__options{
+    max-height: 224px !important;
+}
+select[readonly].select2-hidden-accessible + .select2-container{
+    pointer-events: none;
+    touch-action: none;
+}
+select[readonly].select2-hidden-accessible + .select2-container .select2-selection{
+    background: #eee;
+    box-shadow: none;
+}
+select[readonly].select2-hidden-accessible + .select2-container .select2-selection__arrow,
+select[readonly].select2-hidden-accessible + .select2-container .select2-selection__clear{
+    display: none;
+}
+.form-vertical .icheckbox_minimal-blue{
+    margin: -2px 0 0 5px !important;
+}
+.form-vertical .radio-inline+.radio-inline{
+    margin-left: -10px !important;
+}
+.iradio_minimal-blue{
+    margin: 0 3px 3px 0 !important;
+}
+.form-horizontal .radio-inline{
+    padding-left: 0 !important;
+}
+@media screen and (min-width: 768px){
+    .modal-xl{
+        width: 90%;
+        max-width:1200px;
+    }
+    .form-horizontal .form-control,
+    .form-horizontal input[type=file]{
+        width: 650px;
+    }
+    .form-inline fieldset.normal.one .form-group{
+        width: 100%;
+        margin-top: 15px;
+    }
+    .form-inline fieldset.normal.one .form-group label{
+        text-align: right;
+        width: 17%;
+        padding-right: 20px;
+    }
+    .form-inline fieldset.normal.one .form-group .form-control,
+    .form-inline fieldset.normal.one .form-group input[type=file]{
+        width: 650px;
+    }
+    .form-inline fieldset.normal.many .form-group{
+        width: 31%;
+        margin-top: 15px;
+    }
+    .form-inline fieldset.normal.many .form-group label{
+        text-align: right;
+        width: 41.5%;
+        padding-right: 20px;
+    }
+    .form-inline fieldset.normal.many .form-group .form-control{
+        width: 210px;
+    }
+    .form-inline fieldset .extra{
+        width: 100%;
+        text-align: right;
+        padding: 20px 10px 0 0;
+    }
+    .form-inline fieldset .extra .select2{
+        text-align: left;
+    }
+    .form-inline fieldset .extra .form-group{
+        display: block;
+        padding: 0 29px 15px 0 ;
+    }
+    .form-inline fieldset .extra .form-group label{
+        padding-right: 20px;
+    }
+    .form-inline .modal fieldset.normal .form-group{
+        width: 12.5%;
+        margin-right: 17px;
+    }
+    .form-inline .modal fieldset.normal .form-group label{
+        width: auto;
+        text-align: left;
+        display: block;
+        padding-right: 0;
+    }
+    .form-inline .modal fieldset.normal .form-group .form-control{
+        width: 100%;
+    }
+    .form-inline .modal fieldset .extra .form-group{
+        display: block !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    .form-inline .modal fieldset .extra .form-group label{
+        display: inline-block !important;
+        padding-right: 15px; !important;
+    }
+    .form-inline .modal fieldset .extra .form-group .form-control{
+        width: 14% !important;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1440px) {  /* 兼容笔记本分辨率 */
+    .form-inline fieldset.normal.many .form-group{
+        width: 32%;
+        margin-top: 15px;
+    }
+    .form-inline fieldset.normal.many .form-group label{
+        text-align: left;
+        width: 100%;
+    }
+}
+.form-inline fieldset{
+    margin-bottom: 25px !important;
+}
+.form-inline fieldset legend{
+    font-size: 17px !important;
+    margin-bottom: 0 !important;
+    padding: 7px 7px 7px 9px;
+}
+.form-inline fieldset legend .pull-right button{
+    margin-top: -6px;
+}
+.form-inline fieldset .table-responsive{
+    padding: 9px 0 9px 0;
+}
+.form-inline .table{
+    margin-bottom: 0 !important;
+}
+.form-inline .table>thead{
+    background-color: #F5F5F5 !important;
+}
+.form-inline .table.table-bordered>thead>tr>th,
+.form-inline .table.table-bordered>tbody>tr>td{
+    border: 1px solid #E6E6FA !important;
+}
+.form-inline .table>thead>tr>th{
+    vertical-align: middle !important;
+    border-bottom: 0 !important;
+}
+.form-inline .table>tbody>tr>td{
+    vertical-align: middle !important;
+}
+.form-inline .table .index{
+    padding-left: 1.3em;
+}
+.form-inline .table .form-group{
+    margin-bottom: 0 !important;
+}
+.form-inline .table .form-group .form-control{
+    width: 100% !important;
+    padding: 6px 8px !important;
+}
+.form-inline .box-footer .form-group{
+    margin-left: 39%;
+}
+.input-group .form-control:last-child{
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.btn-add, .btn-remove{
+    width: 40px;
+    height: 34px !important;
+}
+.search-inline, .search-inline li{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+#overlay{
+    display: none;
+    background-color: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+    z-index: 10000;
+}
+
