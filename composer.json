@@ -39,7 +39,9 @@
             "Former\\": "app/Overrides/vendor/Former/"
         },
         "exclude-from-classmap": [
-            "vendor\\anahkiasen\\former\\src\\Former\\Form\\Form.php"
+            "vendor\\anahkiasen\\former\\src\\Former\\Form\\Form.php",
+            "vendor\\anahkiasen\\former\\src\\Former\\Framework\\TwitterBootstrap3.php",
+            "vendor\\anahkiasen\\former\\src\\Former\\Traits\\Field.php"
         ]
     },
     "autoload-dev": {
