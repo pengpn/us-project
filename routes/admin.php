@@ -14,7 +14,7 @@ Route::group(['middleware' => ['guest:admin']], function(){
 //退出登录
 Route::post('logout', 'LoginController@logout');
 
-Route::group(['middleware' => ['auth.admin:admin']], function(){
+Route::group(['middleware' => ['auth.admin:admin','permits.admin']], function(){
     //后台主面板
     Route::get('/','DashboardController@index');
 
