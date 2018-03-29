@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * 后台权限检查
+ * @autho pnpeng
+ * @date 2018-03-29
+ **/
 namespace App\Http\Middleware;
 
 use Closure;
