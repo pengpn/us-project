@@ -14,7 +14,6 @@ use LogicException;
 
 class BaseController extends Controller
 {
-    private $entity;
 
     public function __construct()
     {
@@ -30,9 +29,9 @@ class BaseController extends Controller
      */
     private function initRouteEntity()
     {
-        $this->entity = array_first(explode('.' , request()->route()->getName()));
+        config(['entity' => entity()]);
         //推送主键ID到Request
-        $route_entity = str_replace('-','_', $this->entity);
+        $route_entity = str_slug(config('entity'),'_');
         if (request()->route($route_entity)) {
             request()->merge(['id' => request()->route($route_entity)]);
         }
@@ -77,7 +76,7 @@ class BaseController extends Controller
         //设置主键ID
         View::share('id', request('id'));
         //设置当前实体名
-        View::share('entity', $this->entity);
+        View::share('entity', config('entity'));
         //设置当前方法名
         View::share('action_method', request()->route()->getActionMethod());
     }

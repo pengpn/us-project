@@ -162,7 +162,7 @@ class Form extends FormerObject
         $closing = '</form>';
         if ($this->method != 'GET') {
             $closing = $this->app['former']->token().
-                $this->app['former']->hidden('previous_url', url()->previous()).$closing;
+                $this->app['former']->hidden('previous_url', url()->route(config('entity').'.index')).$closing;
         }
 
         return $closing;

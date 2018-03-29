@@ -4,6 +4,17 @@
  * @author pnpeng
  * @date 2018-03-16
  */
+if(!function_exists('entity')){
+    /**
+     * 取出当前路由对应的实体名
+     * @return mixed
+     */
+    function entity()
+    {
+        $route_name = request()->route()->getName();
+        return array_first(explode('.', $route_name));
+    }
+}
 
 if (! function_exists('rules')) {
     /*
